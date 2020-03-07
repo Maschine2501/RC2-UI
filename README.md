@@ -8,6 +8,17 @@ The Idea behind it:
 
 A wireless remote control with SSD1309 SPI Display (128x64) Display and a Raspberry Pi Zero W with a Battery-Pack.
 
+The Project is in an early stage... so be patient ;)
+
+### early scetches for the design of the remote:
+
+![](https://github.com/Maschine2501/OledUI-Remote/blob/master/wiki/MR1%20Top.jpg)
+![](https://github.com/Maschine2501/OledUI-Remote/blob/master/wiki/MR1%20Side.jpg)
+![](https://github.com/Maschine2501/OledUI-Remote/blob/master/wiki/MR1%20Front.jpg)
+
+![](https://github.com/Maschine2501/OledUI-Remote/blob/master/wiki/MR1%20Top%20C.jpg)
+![](https://github.com/Maschine2501/OledUI-Remote/blob/master/wiki/MR1%20Side%20c.jpg)
+![](https://github.com/Maschine2501/OledUI-Remote/blob/master/wiki/MR1%20Front%20c.jpg)
 
 #### [Project on Volumio-Forum](https://forum.volumio.org/256x64-oled-ssd1322-spi-buttons-rotary-interface-t14098.html#p72945)
 
