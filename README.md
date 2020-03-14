@@ -67,4 +67,9 @@ sudo rm -r OledUI-Remote
 
 ### after the steps above, follow Step 2 from "installation steps"
 
+## Log
+
+for the nightly build:
+
+sudo journalctl -fu oledui-nightly.service
 
