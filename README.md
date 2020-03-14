@@ -23,28 +23,48 @@ The Project is in an early stage... so be patient ;)
 #### [Project on Volumio-Forum](https://forum.volumio.org/256x64-oled-ssd1322-spi-buttons-rotary-interface-t14098.html#p72945)
 
 
-## [installation steps (stable release)](https://github.com/Maschine2501/Volumio-OledUI/wiki/Installation-steps-(stable-release))
+
+## installation steps (nightly build)
 
 
-## [installation steps (nightly build)](https://github.com/Maschine2501/Volumio-OledUI/wiki/Installation-steps-(nightly))
+installation steps
 
-## Check the logs
+Step 1:
 
-#### for the stable build
+sudo apt-get update
+ 
+sudo apt-get install -y python-dev python-pip libfreetype6-dev libjpeg-dev build-essential python-rpi.gpio
+ 
+sudo pip install --upgrade setuptools pip wheel
+ 
+sudo pip install --upgrade socketIO-client-2 luma.oled
 
-sudo journalctl -fu oledui.service
+sudo apt-get install python-pycurl
+ 
+### Step 1 need to be done once, not every time you want to update.
 
-#### for the nightly build:
+Step 2:
 
-sudo journalctl -fu oledui-nightly.service
+git clone https://github.com/Maschine2501/OledUI-Remote.git
+ 
+chmod +x ~/OledUI-Remote/oledui-nightly.py
+ 
+sudo cp ~/OledUI-Remote/oledui-nightly.service /lib/systemd/system/
+ 
+sudo systemctl daemon-reload
+ 
+sudo systemctl enable oledui-nightly.service
 
-## [Hints](https://github.com/Maschine2501/Volumio-OledUI/wiki/hints---tricks---nice-to-know)
+reboot
 
-## [wiring / button-layout / truthtable](https://github.com/Maschine2501/Volumio-OledUI/wiki/Wiring---Button-Truthtable)
+installation steps (Update)
 
-### [hardware](https://github.com/Maschine2501/Volumio-OledUI/wiki/Hardware)
+### for nightly:
 
-### [dependencies](https://github.com/Maschine2501/Volumio-OledUI/wiki/Dependencies)
+sudo systemctl disable oledui-nightly.service
 
-### [Sources & font-info](https://github.com/Maschine2501/Volumio-OledUI/wiki/Sources---font-information)
+sudo rm -r OledUI-Remote
+
+### after the steps above, follow Step 2 from "installation steps"
+
 
