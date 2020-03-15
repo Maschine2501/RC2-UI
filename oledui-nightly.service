@@ -8,8 +8,8 @@ ExecStart=/usr/bin/python -u /home/volumio/OledUI-Remote/oledui-nightly.py
 StandardOutput=syslog
 StandardError=syslog
 SyslogIdentifier=oledui-nightly
-User=pi
-Group=pi
+User=volumio
+Group=volumio
  
 [Install]
 WantedBy=multi-user.target
