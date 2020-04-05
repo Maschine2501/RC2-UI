@@ -73,3 +73,13 @@ for the nightly build:
 
 sudo journalctl -fu oledui-nightly.service
 
+## Prototype:
+
+![](https://i.ibb.co/C053NSG/20200405-124556.jpg)
+![](https://i.ibb.co/qWpqB0M/20200405-124431.jpg)
+![](https://i.ibb.co/6JZHbvZ/20200405-124443.jpg)
+![](https://i.ibb.co/LNbkMD7/20200405-124453.jpg)
+![](https://i.ibb.co/qC3RsWC/20200405-124459.jpg)
+![](https://i.ibb.co/Tgk9jLx/20200405-124516.jpg)
+![](https://i.ibb.co/3pCNf5G/20200405-124525.jpg)
+![](https://i.ibb.co/sFCwjWP/20200405-124529.jpg)
