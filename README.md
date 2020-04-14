@@ -3,7 +3,7 @@ Inspired by: https://github.com/diehardsk/Volumio-OledUI
 # OledUI-Remote
 ---
 
-This code is a "remote"-version of [Maschine2501/Volumio-OledUI](https://github.com/Maschine2501/Volumio-OledUI).
+This code is a "remote"-version of [Maschine2501/NR1-UI](https://github.com/Maschine2501/NR1-UI).
 
 The Idea behind it:
 
