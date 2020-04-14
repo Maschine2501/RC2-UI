@@ -1,6 +1,7 @@
 Inspired by: https://github.com/diehardsk/Volumio-OledUI
 
 # OledUI-Remote
+---
 
 This code is a "remote"-version of [Maschine2501/Volumio-OledUI](https://github.com/Maschine2501/Volumio-OledUI).
 
@@ -10,66 +11,109 @@ A wireless remote control with SSD1309 SPI Display (128x64) Display and a Raspbe
 
 The Project is in an early stage... so be patient ;)
 
-### early scetches for the design of the remote:
-
-![](https://github.com/Maschine2501/OledUI-Remote/blob/master/wiki/MR1%20Top.jpg)
-![](https://github.com/Maschine2501/OledUI-Remote/blob/master/wiki/MR1%20Side.jpg)
-![](https://github.com/Maschine2501/OledUI-Remote/blob/master/wiki/MR1%20Front.jpg)
-
-![](https://github.com/Maschine2501/OledUI-Remote/blob/master/wiki/MR1%20Top%20C.jpg)
-![](https://github.com/Maschine2501/OledUI-Remote/blob/master/wiki/MR1%20Side%20c.jpg)
-![](https://github.com/Maschine2501/OledUI-Remote/blob/master/wiki/MR1%20Front%20c.jpg)
-
 #### [Project on Volumio-Forum](https://forum.volumio.org/256x64-oled-ssd1322-spi-buttons-rotary-interface-t14098.html#p72945)
+---
 
+##installation steps
+---
 
-
-## installation steps (nightly build)
-
-
-installation steps
-
-Step 1:
+## 1st step:
+---
+### configure time(-zone) and update the package list
+```
+sudo dpkg-reconfigure tzdata
 
 sudo apt-get update
- 
-sudo apt-get install -y python-dev python-pip libfreetype6-dev libjpeg-dev build-essential python-rpi.gpio
- 
-sudo pip install --upgrade setuptools pip wheel
- 
-sudo pip install --upgrade socketIO-client-2 luma.oled
+```
+## 2nd step:
+---
+### install Python 3.5.2
+```
+sudo apt-get install build-essential libc6-dev
 
-sudo apt-get install python-pycurl
- 
-### Step 1 need to be done once, not every time you want to update.
+sudo apt-get install libncurses5-dev libncursesw5-dev libreadline6-dev
 
-Step 2:
+sudo apt-get install libdb5.3-dev libgdbm-dev libsqlite3-dev libssl-dev
 
-git clone https://github.com/Maschine2501/OledUI-Remote.git
+sudo apt-get install libbz2-dev libexpat1-dev liblzma-dev zlib1g-dev
+
+wget https://www.python.org/ftp/python/3.5.2/Python-3.5.2.tgz
+
+tar -zxvf Python-3.5.2.tgz
+
+cd Python-3.5.2
+
+./configure
+
+make -j4
+
+sudo make install
+
+cd
+
+sudo rm -fr ./Python-3.5.2*
+```
+
+#### Check Python Version:
+```
+python3 --version
+
+pip3 -v
+```
+#### If python3 != 3.5.2, set symlink:
+```
+alias python3=python3.5
+```
+
+## 3rd step:
+---
+### Update your default pip installation with:
+```
+sudo pip3 install -U pip
+
+sudo pip3 install -U setuptools
+```
+
+## 4th step:
+---
+### install all dependencies
+```
+sudo apt-get install -y python3-dev python3-setuptools python3-pip libfreetype6-dev libjpeg-dev build-essential python-rpi.gpio
+
+sudo pip3 install --upgrade setuptools pip wheel
+
+sudo pip3 install socketIO-client
+
+sudo pip3 install --upgrade luma.oled
+
+sudo apt install libcurl4-openssl-dev libssl-dev
+
+sudo pip3 install pycurl
+```
+
+## 5th step:
+---
+### install Volumio OledUI
+```
+git clone https://github.com/Maschine2501/RC2-UI.git
  
-chmod +x ~/OledUI-Remote/oledui-nightly.py
+chmod +x ~/NR1-UI/rc2ui.py
  
-sudo cp ~/OledUI-Remote/oledui-nightly.service /lib/systemd/system/
+sudo cp ~/NR1-UI/rc2ui.service /lib/systemd/system/
  
 sudo systemctl daemon-reload
  
-sudo systemctl enable oledui-nightly.service
+sudo systemctl enable rc2ui.service
 
 reboot
+```
 
-installation steps (Update)
 
-### for nightly:
-
-sudo systemctl disable oledui-nightly.service
-
-sudo rm -r OledUI-Remote
-
-### after the steps above, follow Step 2 from "installation steps"
-
-## Log
-
-for the nightly build:
+## If something is wrong:
+### check the journal!
+```
+sudo journalctl -fu rc2ui.service
+```
 
 sudo journalctl -fu oledui-nightly.service
 
