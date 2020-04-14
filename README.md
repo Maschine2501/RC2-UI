@@ -93,7 +93,7 @@ sudo pip3 install pycurl
 
 ## 5th step:
 ---
-### install Volumio OledUI
+### install RC2-UI
 ```
 git clone https://github.com/Maschine2501/RC2-UI.git
  
