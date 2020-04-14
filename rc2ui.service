@@ -7,7 +7,7 @@ WorkingDirectory=/home/volumio
 ExecStart=/usr/local/bin/python3 -u /home/volumio/NR1-UI/rc2ui.py
 StandardOutput=syslog
 StandardError=syslog
-SyslogIdentifier=nr1ui-nightly
+SyslogIdentifier=rc2ui-nightly
 User=volumio
 Group=volumio
  
