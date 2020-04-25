@@ -45,7 +45,7 @@ cd Python-3.5.2
 
 ./configure
 
-make -j4
+make
 
 sudo make install
 
@@ -97,9 +97,9 @@ sudo pip3 install pycurl
 ```
 git clone https://github.com/Maschine2501/RC2-UI.git
  
-chmod +x ~/NR1-UI/rc2ui.py
+chmod +x ~/RC2-UI/rc2ui.py
  
-sudo cp ~/NR1-UI/rc2ui.service /lib/systemd/system/
+sudo cp ~/RC2-UI/rc2ui.service /lib/systemd/system/
  
 sudo systemctl daemon-reload
  
