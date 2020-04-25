@@ -3,12 +3,12 @@ Description=RC2-UI
  
 [Service]
 Type=simple
-WorkingDirectory=/home/volumio
-ExecStart=/usr/local/bin/python3 -u /home/volumio/NR1-UI/rc2ui.py
+WorkingDirectory=/home/pi
+ExecStart=/usr/local/bin/python3 -u /home/pi/RC2-UI/rc2ui.py
 StandardOutput=syslog
 StandardError=syslog
 SyslogIdentifier=rc2ui-nightly
-User=volumio
+User=pi
 Group=volumio
  
 [Install]
