@@ -520,16 +520,16 @@ class MediaLibrarayInfo():
         self.text2Pos = (64, 15)      						   #Number of Albums4
         self.text3Pos = (64, 28)      						   #Number of Songs
         self.text4Pos = (64, 41)      						   #Summary of duration
-        self.text5Pos = (0, 2)      						   #Text for Artists
-        self.text6Pos = (0, 15)     						   #Text for Albums
-        self.text7Pos = (0, 28)     						   #Text for Songs
-        self.text8Pos = (0, 41)     						   #Text for duration
-        self.text9Pos = (148, 52)      						   #Menu-Label Icon
-        self.text10Pos = (241, 54)     						   #LibraryInfoIcon
-        self.text11Pos = (42, 2)      						   #icon for Artists
-        self.text12Pos = (42, 15)     						   #icon for Albums
-        self.text13Pos = (42, 28)     						   #icon for Songs
-        self.text14Pos = (42, 41)     						   #icon for duration
+        self.text5Pos = (10, 2)      						   #Text for Artists
+        self.text6Pos = (10, 15)     						   #Text for Albums
+        self.text7Pos = (10, 28)     						   #Text for Songs
+        self.text8Pos = (10, 41)     						   #Text for duration
+        self.text9Pos = (60, 52)      						   #Menu-Label Icon
+        self.text10Pos = (120, 54)     						   #LibraryInfoIcon
+        self.text11Pos = (0, 2)      						   #icon for Artists
+        self.text12Pos = (0, 15)     						   #icon for Albums
+        self.text13Pos = (0, 28)     						   #icon for Songs
+        self.text14Pos = (0, 41)     						   #icon for duration
         self.alfaimage = Image.new('RGBA', image.size, (0, 0, 0, 0))
 
     def UpdateLibraryInfo(self, row1, row2, row3, row4, row5, row6, row7, row8, row9, row10, row11, row12, row13, row14):
@@ -577,7 +577,7 @@ class MediaLibrarayInfo():
         self.alfaimage.paste((0, 0, 0, 0), [0, 0, image.size[0], image.size[1]])
         drawalfa = ImageDraw.Draw(self.alfaimage)
         iconwidth, iconheight = drawalfa.textsize(self.playingIcon, font=self.fontaw)
-        left = (self.width - iconwidth + 42) / 2 #here is defined where the play/pause/stop icons are displayed. 
+        left = (self.width - iconwidth) / 2 #here is defined where the play/pause/stop icons are displayed. 
         drawalfa.text((left, 4), self.playingIcon, font=self.fontaw, fill=(255, 255, 255, 96))
         self.iconcountdown = time
 
@@ -639,10 +639,10 @@ class MenuScreen():
         self.onscreenoptions = min(self.menurows, self.totaloptions)
         self.firstrowindex = 0
         self.showIndex = showIndex
-        self.text1Pos = (57, 54)      						   #UpIcon
-        self.text2Pos = (109, 54)     						   #DownIcon
-        self.text3Pos = (194, 54)    						   #DiscardIcon
-        self.text4Pos = (241, 54)    						   #AcceptIcon
+        self.text1Pos = (0, 54)      						   #UpIcon
+        self.text2Pos = (30, 54)     						   #DownIcon
+        self.text3Pos = (60, 54)    						   #DiscardIcon
+        self.text4Pos = (90, 54)    						   #AcceptIcon
         self.MenuUpdate()
 
     def MenuUpdate(self):
@@ -682,9 +682,9 @@ class MenuScreen():
             self.Icon3.DrawOn(image, self.text3Pos)    #Discard
             self.Icon4.DrawOn(image, self.text4Pos)    #Accept
         for row in range(self.onscreenoptions):
-            self.menuText[row].DrawOn(image, (42, 4 + row*16))       #Here is the position of the list entrys from left set (42)
+            self.menuText[row].DrawOn(image, (0, 4 + row*16))       #Here is the position of the list entrys from left set (42)
         if self.totaloptions == 0:
-            self.menuText[0].DrawOn(image, (42, 4))                  #Here is the position of the list entrys from left set (42)
+            self.menuText[0].DrawOn(image, (0, 4))                  #Here is the position of the list entrys from left set (42)
 	
 def ButtonA_PushEvent(hold_time):
     global UPDATE_INTERVAL
@@ -758,7 +758,7 @@ def ButtonD_PushEvent(hold_time):
         elif oled.state == STATE_PLAYER and oled.playState == 'stop':
             SetState(STATE_LIBRARY_INFO)
             oled.playState = 'info'
-            crl.setopt(crl.URL, 'localhost:3000/api/v1/collectionstats')
+            crl.setopt(crl.URL, 'volumio.local:3000/api/v1/collectionstats')
             crl.setopt(crl.WRITEDATA, b_obj)
             crl.perform()
             crl.close()
