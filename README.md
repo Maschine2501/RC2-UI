@@ -89,7 +89,15 @@ sudo reboot
 ```
 sudo journalctl -fu rc2ui.service
 ```
+## Uninstall
+---
+```
+cd
 
+sudo rm -r RC2-UI
+
+sudo systemctl disable rc2ui.service
+```
 
 ## Prototype:
 
