@@ -17,6 +17,10 @@ The Project is in an early stage... so be patient ;)
 ##installation steps
 ---
 
+#### Run your Raspberry Pi Zero with an "Raspbian Buster Lite" Image
+[Raspbian Images](https://www.raspberrypi.org/downloads/raspbian/)
+
+
 ## 1st step:
 ---
 ### configure time(-zone) and update the package list
@@ -27,71 +31,42 @@ sudo apt-get update
 ```
 ## 2nd step:
 ---
-### install Python 3.5.2
-```
-sudo apt-get install build-essential libc6-dev
-
-sudo apt-get install libncurses5-dev libncursesw5-dev libreadline6-dev
-
-sudo apt-get install libdb5.3-dev libgdbm-dev libsqlite3-dev libssl-dev
-
-sudo apt-get install libbz2-dev libexpat1-dev liblzma-dev zlib1g-dev
-
-wget https://www.python.org/ftp/python/3.5.2/Python-3.5.2.tgz
-
-tar -zxvf Python-3.5.2.tgz
-
-cd Python-3.5.2
-
-./configure
-
-make
-
-sudo make install
-
-cd
-
-sudo rm -fr ./Python-3.5.2*
-```
-
-#### Check Python Version:
-```
-python3 --version
-
-pip3 -v
-```
-#### If python3 != 3.5.2, set symlink:
-```
-alias python3=python3.5
-```
-
-## 3rd step:
----
 ### Update your default pip installation with:
 ```
+sudo apt install python3-pip
+
 sudo pip3 install -U pip
 
 sudo pip3 install -U setuptools
 ```
 
-## 4th step:
+## 3th step:
 ---
 ### install all dependencies
 ```
 sudo apt-get install -y python3-dev python3-setuptools python3-pip libfreetype6-dev libjpeg-dev build-essential python-rpi.gpio
 
+sudo apt-get install -y python3-rpi.gpio  
+
+sudo apt-get install libopenjp2-7-dev
+
+sudo apt install libtiff5
+
 sudo pip3 install --upgrade setuptools pip wheel
 
 sudo pip3 install socketIO-client
 
-sudo pip3 install --upgrade luma.oled
+pip3 install luma.oled
 
 sudo apt install libcurl4-openssl-dev libssl-dev
 
 sudo pip3 install pycurl
+
+sudo apt-get install git
+
 ```
 
-## 5th step:
+## 4th step:
 ---
 ### install RC2-UI
 ```
@@ -105,7 +80,7 @@ sudo systemctl daemon-reload
  
 sudo systemctl enable rc2ui.service
 
-reboot
+sudo reboot
 ```
 
 
@@ -115,7 +90,6 @@ reboot
 sudo journalctl -fu rc2ui.service
 ```
 
-sudo journalctl -fu oledui-nightly.service
 
 ## Prototype:
 
