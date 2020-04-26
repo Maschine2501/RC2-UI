@@ -9,7 +9,7 @@ StandardOutput=syslog
 StandardError=syslog
 SyslogIdentifier=rc2ui-nightly
 User=pi
-Group=volumio
+Group=sudo
  
 [Install]
 WantedBy=multi-user.target
