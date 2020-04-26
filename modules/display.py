@@ -6,7 +6,7 @@ from PIL import ImageFont
 
 def show_logo(filename, device):
     logoImage = Image.new('RGB', (device.width, device.height))
-    img_path = os.path.dirname(os.path.realpath(__file__)) + '/../img/'
+    img_path = '/home/pi/RC2-UI/img' #os.path.dirname(os.path.realpath(__file__)) + '/../img/'
     try:
         logoImage = Image.open(img_path + filename) #.resize((device.width, device.height), Image.ANTIALIAS)
     except IOError:
