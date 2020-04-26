@@ -706,7 +706,7 @@ def ButtonA_PushEvent(hold_time):
         print('ButtonA long press event')
         oled.ShutdownFlag = True
         sleep(0.1)
-        show_logo("shutdown.ppm", oled)
+        show_logo("shutdown.jpg", oled)
         sleep(5)
         oled.cleanup()                                              # put display into low power mode
         volumioIO.emit('shutdown')
@@ -870,7 +870,7 @@ RightKnob_Rotation = RotaryEncoder(22, 23, pulses_per_cycle=4)
 RightKnob_Rotation.setCallback(RightKnob_RotaryEvent)
 #IR receiver is connected to port 13
 
-show_logo("volumio_logo.ppm", oled)
+show_logo("volumio_logo.jpg", oled)
 sleep(2)
 SetState(STATE_PLAYER)
 
