@@ -5,10 +5,10 @@ from PIL import ImageDraw
 from PIL import ImageFont
 
 def show_logo(filename, device):
-    logoImage = Image.new('RGB', (device.width, device.height))
+    logoImage = Image.new('1', (device.width, device.height))
     img_path = os.path.dirname(os.path.realpath(__file__)) + '/../img/' #'/home/pi/RC2-UI/img' 
     try:
-        logoImage = Image.open(img_path + filename) #.resize((device.width, device.height), Image.ANTIALIAS)
+        logoImage = Image.open(img_path + filename).convert('1') #convert 1 is needed for the monochrome ssd1309  .resize((device.width, device.height), Image.ANTIALIAS)
     except IOError:
         print("Cannot open file %s" % filename)
         pass
@@ -29,7 +29,7 @@ class Screen(object): # screen base class
         self.width = width
         self.height = height
 
-        self.image = Image.new('RGB', (self.width, self.height))
+        self.image = Image.new('1', (self.width, self.height))
         self.draw = ImageDraw.Draw(self.image)
 
         self.draw.rectangle((0, 0, self.width - 1, self.height - 1), outline="white", fill="black")
@@ -44,7 +44,7 @@ class StaticText(Screen):
         self.textlabel = textlabel
         self.textwidth, self.textheight = self.draw.textsize(textlabel, font=font)
         self.center = center
-        self.image = Image.new('RGB', (self.textwidth+2, self.textheight+2), bgcolor)   #Need to investigate what are the result of +2 is
+        self.image = Image.new('1', (self.textwidth+2, self.textheight+2), bgcolor)   #Need to investigate what are the result of +2 is
         self.draw = ImageDraw.Draw(self.image)
         #self.draw.fontmode = "1"  #no antialiasing
         self.draw.text((0, 0), textlabel, font=font, fill=fill)
@@ -70,7 +70,7 @@ class ScrollText(Screen):
         self.textwidth, self.textheight = self.draw.textsize(textlabel, font=font)
         self.stopPosition =  self.textwidth - width + self.endScrollMargin
 
-        self.image = Image.new('RGB', (self.textwidth + 4, self.textheight + 4))    #Need to investigate what are the result of +4 is
+        self.image = Image.new('1', (self.textwidth + 4, self.textheight + 4))    #Need to investigate what are the result of +4 is
         self.draw = ImageDraw.Draw(self.image)
         self.draw.text((0, 0), textlabel, font=font, fill="white")
 
@@ -103,7 +103,7 @@ class Bar(Screen):
         self.barWidth = barWidth
         self.filledPixels = 0
 
-        self.image = Image.new('RGB', (self.barWidth, self.barHeight))
+        self.image = Image.new('1', (self.barWidth, self.barHeight))
         self.draw = ImageDraw.Draw(self.image)
 
     def SetFilledPercentage(self, percent):
