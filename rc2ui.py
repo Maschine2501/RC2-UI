@@ -128,7 +128,7 @@ iconfont = load_font('entypo.ttf', oled.HEIGHT)                #used for play/pa
 labelfont = load_font('entypo.ttf', 16)                        #used for Menu-icons 
 labelfont2 = load_font('entypo.ttf', 12)                       #used for Menu-icons
 iconfontBottom = load_font('entypo.ttf', 10)                   #used for icons under the screen / button layout
-fontClock = load_font('DSG.ttf', 30)                           #used for clock
+fontClock = load_font('DSG.ttf', 24)                           #used for clock
 fontDate = load_font('DSEG7Classic-Regular.ttf', 10)           #used for Date 
 fontIP = load_font('DSEG7Classic-Regular.ttf', 10)             #used for IP  
 
@@ -482,7 +482,7 @@ class NowPlayingScreen():
     def SetPlayingIcon(self, state, time=0):
         if state in self.icon:
            self.playingIcon = self.icon[state]
-        self.alfaimage.paste((0, 0, 0, 200), [0, 0, image.size[0], image.size[1]])                 #(0, 0, 0, 200) means Background (nowplayingscreen with artist, song etc.) is darkend. Change 200 to 0 -> Background is completely visible. 255 -> Bachground is not visible. scale = 0-255
+        self.alfaimage.paste((0, 0, 0, 255), [0, 0, image.size[0], image.size[1]])                 #(0, 0, 0, 200) means Background (nowplayingscreen with artist, song etc.) is darkend. Change 200 to 0 -> Background is completely visible. 255 -> Bachground is not visible. scale = 0-255
         drawalfa = ImageDraw.Draw(self.alfaimage)
         iconwidth, iconheight = drawalfa.textsize(self.playingIcon, font=self.iconfont)            #entypo
         left = (self.width - iconwidth) / 2						   #here is defined where the play/pause/stop icons are displayed. 
