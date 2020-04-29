@@ -156,7 +156,7 @@ def display_update_service():
         except AttributeError:
             print("render error")
             sleep(1)
-        cimg = image.crop((pixshift[0], pixshift[1], pixshift[0] + oled.WIDTH, pixshift[1] + oled.HEIGHT)) 
+        cimg = image.crop((pixshift[0], pixshift[1], pixshift[0] + oled.WIDTH, pixshift[1] + oled.HEIGHT)).convert('1') 
         oled.display(cimg)
         sleep(UPDATE_INTERVAL)
 
