@@ -73,7 +73,7 @@ oled.volumeControlDisabled = True
 oled.volume = 100
 now = datetime.now()                                                             #current date and time
 oled.time = now.strftime("%H:%M:%S")                                             #resolves time as HH:MM:SS eg. 14:33:15
-oled.date = now.strftime("%d.  %m.  %Y")                                         #resolves time as dd.mm.YYYY eg. 17.04.2020
+oled.date = now.strftime("%d.%m.%Y")                                         #resolves time as dd.mm.YYYY eg. 17.04.2020
 oled.IP = os.popen('ip addr show wlan0').read().split("inet ")[1].split("/")[0]   #resolves IP from Ethernet Adapator
 emit_volume = False
 emit_track = False
@@ -408,20 +408,20 @@ class NowPlayingScreen():
         self.text1Pos = (0, 2)        #Artist /
         self.text2Pos = (0, 22)       #Title
         self.text3Pos = (0, 4)        #clock (clock  text is 161 pixels long) (222px viewable - text = 73 : 2 = 31 + 42offset = 73)
-        self.text4Pos = (0, 41)       #IP
-        self.text5Pos = (64, 41)      #Date
+        self.text4Pos = (2, 41)       #IP
+        self.text5Pos = (76, 41)      #Date
         self.text6Pos = (0, 41)       #format
         self.text7Pos = (64, 41)      #samplerate
         self.text8Pos = (96, 41)      #bitdepth
-        self.text9Pos = (0, 54)       #PlayIcon
-        self.text10Pos = (8, 54)      #PauseIcon
-        self.text11Pos = (28, 54)      #StopIcon
-        self.text12Pos = (110, 54)     #PreviousIcon
-        self.text13Pos = (120, 54)     #NextIcon
-        self.text14Pos = (4, 54)      #LibraryIcon
-        self.text15Pos = (28, 54)      #PlaylistIcon
-        self.text16Pos = (110, 54)     #QueueIcon
-        self.text17Pos = (120, 54)     #LibraryInfoIcon
+        self.text9Pos = (10, 54)       #PlayIcon
+        self.text10Pos = (16, 54)      #PauseIcon
+        self.text11Pos = (44, 54)      #StopIcon
+        self.text12Pos = (76, 54)     #PreviousIcon
+        self.text13Pos = (108, 54)     #NextIcon
+        self.text14Pos = (12, 54)      #LibraryIcon
+        self.text15Pos = (44, 54)      #PlaylistIcon
+        self.text16Pos = (76, 54)     #QueueIcon
+        self.text17Pos = (108, 54)     #LibraryInfoIcon
         self.alfaimage = Image.new('RGBA', image.size, (0, 0, 0, 0))
 
 # "def __init__(self,...." is the "initialization" of the "NowPlayingScreen". 
