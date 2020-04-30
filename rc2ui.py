@@ -120,8 +120,8 @@ oled.clear()
 font = load_font('Oxanium-Bold.ttf', 20)                       #used for Artist
 font2 = load_font('Oxanium-Light.ttf', 12)                     #used for all menus
 font3 = load_font('Oxanium-Regular.ttf', 18)                   #used for Song
-font4 = load_font('Oxanium-Medium.ttf', 12)                    #used for Format/Smplerate/Bitdepth
-font5 = load_font('Oxanium-Medium.ttf', 11)                    #used for MediaLibraryInfo
+font4 = load_font('slkscr.ttf', 10)                    #used for Format/Smplerate/Bitdepth
+font5 = load_font('slkscr.ttf', 10)                    #used for MediaLibraryInfo
 hugefontaw = load_font('fa-solid-900.ttf', oled.HEIGHT - 4)    #used for play/pause/stop icons -> Status change overlay
 mediaicon = load_font('fa-solid-900.ttf', 10)    	       #used for icon in Media-library info
 iconfont = load_font('entypo.ttf', oled.HEIGHT)                #used for play/pause/stop/shuffle/repeat... icons
@@ -129,8 +129,8 @@ labelfont = load_font('entypo.ttf', 16)                        #used for Menu-ic
 labelfont2 = load_font('entypo.ttf', 12)                       #used for Menu-icons
 iconfontBottom = load_font('entypo.ttf', 10)                   #used for icons under the screen / button layout
 fontClock = load_font('DSG.ttf', 24)                           #used for clock
-fontDate = load_font('DSEG7Classic-Regular.ttf', 10)           #used for Date 
-fontIP = load_font('DSEG7Classic-Regular.ttf', 10)             #used for IP  
+fontDate = load_font('slkscr.ttf', 8)           #used for Date 
+fontIP = load_font('slkscr.ttf', 8)             #used for IP  
 
 #above are the "imports" for the fonts. 
 #After the name of the font comes a number, this defines the Size (height) of the letters. 
@@ -486,7 +486,7 @@ class NowPlayingScreen():
         drawalfa = ImageDraw.Draw(self.alfaimage)
         iconwidth, iconheight = drawalfa.textsize(self.playingIcon, font=self.iconfont)            #entypo
         left = (self.width - iconwidth) / 2						   #here is defined where the play/pause/stop icons are displayed. 
-        drawalfa.text((left, 4), self.playingIcon, font=self.iconfont, fill=(255, 255, 255, 200))  #(255, 255, 255, 200) means Icon is nearly white. Change 200 to 0 -> icon is not visible. scale = 0-255
+        drawalfa.text((left, 4), self.playingIcon, font=self.iconfont, fill=(255, 255, 255, 255))  #(255, 255, 255, 200) means Icon is nearly white. Change 200 to 0 -> icon is not visible. scale = 0-255
         self.iconcountdown = time
 
 class MediaLibrarayInfo():
