@@ -110,6 +110,10 @@ sudo systemctl enable rc2ui.service
 sudo reboot
 ```
 
+## You need another Volumio-Client running!!
+
+#### The RC2-UI needs another Volumio-Host reachable under "volumio.local"
+
 
 ## If something is wrong:
 ### check the journal!
