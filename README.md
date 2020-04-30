@@ -71,13 +71,7 @@ sudo pip3 install -U setuptools
 ---
 ### install all dependencies
 ```
-sudo apt-get install -y python3-dev python3-setuptools python3-pip libfreetype6-dev libjpeg-dev build-essential python-rpi.gpio
-
-sudo apt-get install -y python3-rpi.gpio  
-
-sudo apt-get install libopenjp2-7-dev
-
-sudo apt install libtiff5
+sudo apt-get install -y python3-dev python3-setuptools python3-pip libfreetype6-dev libjpeg-dev build-essential python-rpi.gpio python3-rpi.gpio libopenjp2-7-dev libtiff5 libcurl4-openssl-dev libssl-dev git
 
 sudo pip3 install --upgrade setuptools pip wheel
 
@@ -85,11 +79,7 @@ sudo pip3 install socketIO-client
 
 pip3 install luma.oled
 
-sudo apt install libcurl4-openssl-dev libssl-dev
-
 sudo pip3 install pycurl
-
-sudo apt-get install git
 
 ```
 
