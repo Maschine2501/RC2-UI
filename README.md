@@ -17,9 +17,33 @@ The Project is in an early stage... so be patient ;)
 ##installation steps
 ---
 
-#### Run your Raspberry Pi Zero with an "Raspbian Buster Lite" Image
+#### Make an SD-Card with an "Raspbian Buster Lite" Image ready:
+
+1st - Download Image:
 [Raspbian Images](https://www.raspberrypi.org/downloads/raspbian/)
 
+2nd - flash it to the SD-Card:
+Use "Win32Diskimager"
+
+3rd - Go to the "root" folder of the SD Card
+
+- Open "config.txt"
+  -> remove the "#" before "dtparam=spi=on" to activate SPI
+
+- make a new textfile called "ssh" -> no .txt at the end!
+
+- Make a new textfile called "wpa_supplicant.conf"
+  -> put this text in it, and edit it for your case:
+```  
+country=US
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+
+network={
+    ssid="NETWORK-NAME"
+    psk="NETWORK-PASSWORD"
+}
+```
 
 ## 1st step:
 ---
