@@ -44,6 +44,9 @@ network={
     psk="NETWORK-PASSWORD"
 }
 ```
+4th - remove SD Card, put it in your Pi Zero and let it boot (takes a few minutes)
+
+5th - Connect to the Pi Zero with SSH (Putty/Kitty) (User: pi / PW: raspberry)
 
 ## 1st step:
 ---
