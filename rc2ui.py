@@ -410,9 +410,9 @@ class NowPlayingScreen():
         self.text3Pos = (0, 4)        #clock (clock  text is 161 pixels long) (222px viewable - text = 73 : 2 = 31 + 42offset = 73)
         self.text4Pos = (0, 46)       #IP
         self.text5Pos = (0, 30)      #Date
-        self.text6Pos = (2, 41)       #format
-        self.text7Pos = (64, 41)      #samplerate
-        self.text8Pos = (96, 41)      #bitdepth
+        self.text6Pos = (2, 44)       #format
+        self.text7Pos = (52, 44)      #samplerate
+        self.text8Pos = (98, 44)      #bitdepth
         self.text9Pos = (8, 56)       #PlayIcon
         self.text10Pos = (16, 56)      #PauseIcon
         self.text11Pos = (46, 56)      #StopIcon
