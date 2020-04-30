@@ -117,14 +117,14 @@ oled.PlaytimeIcon = '\U0000F1DA'
 image = Image.new('RGB', (oled.WIDTH, oled.HEIGHT))  #for Pixelshift: (oled.WIDTH + 4, oled.HEIGHT + 4)) 
 oled.clear()
 
-font = load_font('Oxanium-Bold.ttf', 20)                       #used for Artist
+font = load_font('Oxanium-Regular.ttf', 18)                       #used for Artist
 font2 = load_font('Oxanium-Light.ttf', 12)                     #used for all menus
-font3 = load_font('Oxanium-Regular.ttf', 18)                   #used for Song
-font4 = load_font('slkscr.ttf', 10)                    #used for Format/Smplerate/Bitdepth
-font5 = load_font('slkscr.ttf', 10)                    #used for MediaLibraryInfo
+font3 = load_font('Oxanium-Light.ttf', 14)                   #used for Song
+font4 = load_font('slkscr.ttf', 8)                    #used for Format/Smplerate/Bitdepth
+font5 = load_font('slkscr.ttf', 8)                    #used for MediaLibraryInfo
 hugefontaw = load_font('fa-solid-900.ttf', oled.HEIGHT - 4)    #used for play/pause/stop icons -> Status change overlay
 mediaicon = load_font('fa-solid-900.ttf', 10)    	       #used for icon in Media-library info
-iconfont = load_font('entypo.ttf', oled.HEIGHT)                #used for play/pause/stop/shuffle/repeat... icons
+iconfont = load_font('entypo.ttf', 40)                #used for play/pause/stop/shuffle/repeat... icons
 labelfont = load_font('entypo.ttf', 16)                        #used for Menu-icons 
 labelfont2 = load_font('entypo.ttf', 12)                       #used for Menu-icons
 iconfontBottom = load_font('entypo.ttf', 10)                   #used for icons under the screen / button layout
@@ -396,8 +396,8 @@ class NowPlayingScreen():
         self.playingText9 = StaticText(self.height, self.width, row12, iconfontBottom)  #PreviousIcon  
         self.playingText10 = StaticText(self.height, self.width, row13, iconfontBottom) #NextIcon     
         self.standbyText1 = StaticText(self.height, self.width, row3, fontClock)    	#Clock /center=True
-        self.standbyText2 = StaticText(self.height, self.width, row4, fontIP)	    	#IP
-        self.standbyText3 = StaticText(self.height, self.width, row5, fontDate)     	#Date
+        self.standbyText2 = StaticText(self.height, self.width, row4, fontIP, center=True)	    	#IP
+        self.standbyText3 = StaticText(self.height, self.width, row5, fontDate, center=True)     	#Date
         self.standbyText4 = StaticText(self.height, self.width, row14, iconfontBottom)  #LibraryIcon
         self.standbyText5 = StaticText(self.height, self.width, row15, iconfontBottom)	#PlaylistIcon
         self.standbyText6 = StaticText(self.height, self.width, row16, iconfontBottom)  #QueueIcon
@@ -408,20 +408,20 @@ class NowPlayingScreen():
         self.text1Pos = (2, 2)        #Artist /
         self.text2Pos = (2, 22)       #Title
         self.text3Pos = (0, 4)        #clock (clock  text is 161 pixels long) (222px viewable - text = 73 : 2 = 31 + 42offset = 73)
-        self.text4Pos = (2, 41)       #IP
-        self.text5Pos = (76, 41)      #Date
-        self.text6Pos = (0, 41)       #format
+        self.text4Pos = (0, 46)       #IP
+        self.text5Pos = (0, 30)      #Date
+        self.text6Pos = (2, 41)       #format
         self.text7Pos = (64, 41)      #samplerate
         self.text8Pos = (96, 41)      #bitdepth
-        self.text9Pos = (10, 54)       #PlayIcon
-        self.text10Pos = (16, 54)      #PauseIcon
-        self.text11Pos = (44, 54)      #StopIcon
-        self.text12Pos = (76, 54)     #PreviousIcon
-        self.text13Pos = (108, 54)     #NextIcon
-        self.text14Pos = (12, 54)      #LibraryIcon
-        self.text15Pos = (44, 54)      #PlaylistIcon
-        self.text16Pos = (76, 54)     #QueueIcon
-        self.text17Pos = (108, 54)     #LibraryInfoIcon
+        self.text9Pos = (8, 56)       #PlayIcon
+        self.text10Pos = (16, 56)      #PauseIcon
+        self.text11Pos = (46, 56)      #StopIcon
+        self.text12Pos = (81, 56)     #PreviousIcon
+        self.text13Pos = (117, 56)     #NextIcon
+        self.text14Pos = (12, 56)      #LibraryIcon
+        self.text15Pos = (46, 56)      #PlaylistIcon
+        self.text16Pos = (81, 56)     #QueueIcon
+        self.text17Pos = (117, 56)     #LibraryInfoIcon
         self.alfaimage = Image.new('RGBA', image.size, (0, 0, 0, 0))
 
 # "def __init__(self,...." is the "initialization" of the "NowPlayingScreen". 
@@ -441,8 +441,8 @@ class NowPlayingScreen():
 
     def UpdateStandbyInfo(self, row3, row4, row5, row14, row15, row16, row17):
         self.standbyText1 = StaticText(self.height, self.width, row3, fontClock) 	#Clock center=True)
-        self.standbyText2 = StaticText(self.height, self.width, row4, fontIP)    	#IP
-        self.standbyText3 = StaticText(self.height, self.width, row5, fontDate)  	#Date
+        self.standbyText2 = StaticText(self.height, self.width, row4, fontIP, center=True)    	#IP
+        self.standbyText3 = StaticText(self.height, self.width, row5, fontDate, center=True)  	#Date
         self.standbyText4 = StaticText(self.height, self.width, row14, iconfontBottom)  #LibraryIcon
         self.standbyText5 = StaticText(self.height, self.width, row15, iconfontBottom)	#PlaylistIcon
         self.standbyText6 = StaticText(self.height, self.width, row16, iconfontBottom)  #QueueIcon
@@ -525,11 +525,11 @@ class MediaLibrarayInfo():
         self.text7Pos = (10, 28)     						   #Text for Songs
         self.text8Pos = (10, 41)     						   #Text for duration
         self.text9Pos = (60, 52)      						   #Menu-Label Icon
-        self.text10Pos = (120, 54)     						   #LibraryInfoIcon
-        self.text11Pos = (0, 2)      						   #icon for Artists
-        self.text12Pos = (0, 15)     						   #icon for Albums
-        self.text13Pos = (0, 28)     						   #icon for Songs
-        self.text14Pos = (0, 41)     						   #icon for duration
+        self.text10Pos = (117, 54)     						   #LibraryInfoIcon
+        self.text11Pos = (2, 2)      						   #icon for Artists
+        self.text12Pos = (2, 15)     						   #icon for Albums
+        self.text13Pos = (2, 28)     						   #icon for Songs
+        self.text14Pos = (2, 41)     						   #icon for duration
         self.alfaimage = Image.new('RGBA', image.size, (0, 0, 0, 0))
 
     def UpdateLibraryInfo(self, row1, row2, row3, row4, row5, row6, row7, row8, row9, row10, row11, row12, row13, row14):
@@ -578,7 +578,7 @@ class MediaLibrarayInfo():
         drawalfa = ImageDraw.Draw(self.alfaimage)
         iconwidth, iconheight = drawalfa.textsize(self.playingIcon, font=self.fontaw)
         left = (self.width - iconwidth) / 2 #here is defined where the play/pause/stop icons are displayed. 
-        drawalfa.text((left, 4), self.playingIcon, font=self.fontaw, fill=(255, 255, 255, 96))
+        drawalfa.text((left, 4), self.playingIcon, font=self.fontaw, fill=(255, 255, 255, 255))
         self.iconcountdown = time
 
 class VolumeScreen():
@@ -588,9 +588,9 @@ class VolumeScreen():
         self.font = font
         self.font2 = font2
         self.volumeLabel = None
-        self.labelPos = (40, 5)
+        self.labelPos = (2, 5)
         self.volumeNumber = None
-        self.numberPos = (40, 25)
+        self.numberPos = (2, 25)
         self.barHeight = 22
         self.barWidth = 140
         self.volumeBar = Bar(self.height, self.width, self.barHeight, self.barWidth)
@@ -626,7 +626,7 @@ class MenuScreen():
             self.hasLabel = 0
         else:
             self.hasLabel = 1
-        self.labelPos = (148, 52)                      #here is the position of the menu label
+        self.labelPos = (2, 52)                      #here is the position of the menu label
         self.menuYPos = 2 + 12 * self.hasLabel
         self.menurows = rows
         self.menuText = [None for i in range(self.menurows)]
@@ -639,10 +639,10 @@ class MenuScreen():
         self.onscreenoptions = min(self.menurows, self.totaloptions)
         self.firstrowindex = 0
         self.showIndex = showIndex
-        self.text1Pos = (0, 54)      						   #UpIcon
-        self.text2Pos = (30, 54)     						   #DownIcon
-        self.text3Pos = (60, 54)    						   #DiscardIcon
-        self.text4Pos = (90, 54)    						   #AcceptIcon
+        self.text1Pos = (12, 56)      						   #UpIcon
+        self.text2Pos = (46, 56)     						   #DownIcon
+        self.text3Pos = (81, 56)    						   #DiscardIcon
+        self.text4Pos = (117, 56)    						   #AcceptIcon
         self.MenuUpdate()
 
     def MenuUpdate(self):
@@ -896,24 +896,8 @@ volumioIO.on('pushBrowseLibrary', onLibraryBrowse)
 volumioIO.emit('listPlaylist')
 volumioIO.emit('getState')
 volumioIO.emit('getQueue')
-#volumioIO.emit('collectionstats')
 
-#volumioIO.emit('getBrowseSources')
 sleep(0.1)
-
-#def timeupdate()
-#    start_time = datetime.datetime.now()
-
-try:
-    with open('oledconfig.json', 'r') as f:   #load last playing track number
-        config = json.load(f)
-except IOError:
-    pass
-else:
-    oled.playPosition = config['track']
-    
-if oled.playState != 'play':
-    volumioIO.emit('play', {'value':oled.playPosition})
 
 varcanc = True                      #helper for pause -> stop timeout counter
 InfoTag = 0                         #helper for missing Artist/Song when changing sources
