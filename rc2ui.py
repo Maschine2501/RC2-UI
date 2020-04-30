@@ -405,8 +405,8 @@ class NowPlayingScreen():
         self.icon = {'play':'\u25B6', 'pause':'\u2389', 'stop':'\u25A0'}       	    	#entypo icons
         self.playingIcon = self.icon['play']
         self.iconcountdown = 0
-        self.text1Pos = (0, 2)        #Artist /
-        self.text2Pos = (0, 22)       #Title
+        self.text1Pos = (2, 2)        #Artist /
+        self.text2Pos = (2, 22)       #Title
         self.text3Pos = (0, 4)        #clock (clock  text is 161 pixels long) (222px viewable - text = 73 : 2 = 31 + 42offset = 73)
         self.text4Pos = (2, 41)       #IP
         self.text5Pos = (76, 41)      #Date
