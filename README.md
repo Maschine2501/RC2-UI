@@ -14,7 +14,7 @@ The Project is in an early stage... so be patient ;)
 #### [Project on Volumio-Forum](https://forum.volumio.org/256x64-oled-ssd1322-spi-buttons-rotary-interface-t14098.html#p72945)
 ---
 
-##installation steps
+## installation steps
 ---
 
 #### Make an SD-Card with an "Raspbian Buster Lite" Image ready:
